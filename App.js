@@ -8,14 +8,22 @@
 
 import React from 'react';
 import Router from './Routes';
-import {Provider} from 'react-redux';
-import {store} from './src/store';
+import {KeepAwakeService} from "./src/services"
+// import {Provider} from 'react-redux';
+// import {store} from './src/store';
+
+const services = [
+  KeepAwakeService
+]
 
 const App = () => {
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
+    <>
       <Router />
-    </Provider>
+      {services.map((S, i) => <S key={i} />)}
+    </>
+    // </Provider>
   );
 };
 
